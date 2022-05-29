@@ -1,0 +1,193 @@
+body {
+  background-color: black;
+}
+/* .main-container {
+} */
+.navbar-main {
+  background: transparent;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+a {
+  color: crimson;
+  text-decoration: none;
+  text-align: center;
+}
+.nav-link {
+  color: crimson;
+  font-weight: 500;
+}
+a:hover {
+  color: white;
+  transition: 500ms;
+}
+.nav-link:hover {
+  color: white;
+}
+.navbar-pos {
+  width: 100%;
+  position: fixed;
+  top: 0;
+  z-index: 1;
+  transition-timing-function: ease-in-out;
+  transition: all 500ms;
+}
+.nav-black-bg {
+  background-color: #111;
+  border-bottom: solid 1.3px crimson;
+}
+.row-home {
+  margin-bottom: 3rem;
+  color: white;
+  padding: 1.2rem;
+}
+.row-poster {
+  display: flex;
+  overflow-y: hidden;
+  overflow-x: scroll;
+  padding: 1.5rem;
+}
+.row-poster img {
+  object-fit: cover;
+  width: 200px;
+  height: 250px;
+  max-height: auto;
+  margin-right: 1rem;
+  margin-bottom: 1rem;
+  transition: transform 400ms;
+  border: 1.5px solid white;
+}
+.row-poster img:hover {
+  transform: scale(1.08);
+  cursor: pointer;
+  border-color: crimson;
+}
+.row-poster::-webkit-scrollbar {
+  height: 0.35rem;
+}
+.row-poster::-webkit-scrollbar-track {
+  background-color: black;
+  border-radius: 100vw;
+}
+.row-poster::-webkit-scrollbar-thumb {
+  background-color: crimson;
+  border-radius: 100vw;
+}
+.banner {
+  height: 28rem;
+  max-height: auto;
+  color: white;
+}
+.banner-bg {
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+}
+.banner-container {
+  height: 83%;
+  max-height: auto;
+  width: 50%;
+  padding: 6rem 2rem 0 2rem;
+}
+.banner-button {
+  width: 5rem;
+  height: 2rem;
+  margin: 0.8rem 0.5rem 0 0;
+  outline: none;
+  border: 1px solid white;
+  background-color: rgba(51, 51, 51, 0.4);
+  color: white;
+  cursor: pointer;
+}
+.banner-button:hover {
+  color: crimson;
+  transition: 500ms;
+}
+p {
+  font-size: 0.9rem;
+  margin-top: 0.8rem;
+}
+.fadeBottom {
+  height: 5rem;
+  background: linear-gradient(180deg, transparent, rgba(37, 37, 37, 0.6), #111);
+  border-bottom: 1.5px solid crimson;
+}
+.bg-footer {
+  background: #303030;
+  border-top: 1.2px solid crimson;
+}
+.color-white {
+  color: white;
+}
+.height {
+  min-height: 95vh;
+  max-height: auto;
+}
+textarea {
+  resize: none;
+}
+.contact-border {
+  border: 1px solid gray;
+  margin: 0.5rem;
+  border-radius: 1rem;
+}
+.form-control {
+  width: 20rem;
+}
+.w-a {
+  width: auto;
+}
+.btn-contact {
+  background-color: crimson;
+  color: white;
+  font-weight: 400;
+  width: 7rem;
+  border-radius: 2rem;
+}
+.border-btm {
+  border-bottom: 2px solid crimson;
+}
+.card {
+  background-color: gray;
+  text-align: left;
+}
+.about-btn {
+  width: 275px;
+  margin-top: 3rem;
+  background-color: crimson;
+  color: black;
+  border: 1px solid white;
+  font-size: large;
+}
+.about-btn:hover {
+  background-color: crimson;
+  color: white;
+}
+.about-btn:focus {
+  background-color: crimson;
+  color: white;
+  box-shadow: none;
+}
+.contact-banner {
+  width: 100%;
+  height: 70vh;
+  background-image: url(./Media/customer-service.jpg);
+  background-size: cover;
+  background-position: top;
+  border-bottom: 1.5px solid crimson;
+}
+.h-100 {
+  height: 100px;
+}
+.error-pg {
+  padding-top: 5rem;
+  text-align: center;
+}
+.navbar-rotate {
+  transform: rotate(90deg);
+  line-height: 1.4;
+}
+
+@media screen and (max-width: 650px) {
+  .banner-container {
+    width: 100%;
+  }
+}
