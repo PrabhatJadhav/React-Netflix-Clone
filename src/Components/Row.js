@@ -30,7 +30,7 @@ function Row({ title, fetchUrl }) {
       const searchInput = data?.title || data?.name || data?.original_name;
       const response = await youtubeUrl.get("/search", {
         params: {
-          q: searchInput + " trailer",
+          q: searchInput + " official trailer",
         },
       });
       let videoData = response.data.items;
@@ -83,3 +83,5 @@ function Row({ title, fetchUrl }) {
 }
 
 export default Row;
+
+// ? --> Optional chaining

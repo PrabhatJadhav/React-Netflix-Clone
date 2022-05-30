@@ -1,3 +1,8 @@
+@import url("https://fonts.googleapis.com/css2?family=Tiro+Bangla&display=swap");
+
+* {
+  font-family: "Tiro Bangla", serif;
+}
 body {
   background-color: black;
 }
@@ -6,6 +11,7 @@ body {
 .navbar-main {
   background: transparent;
   background-color: rgba(0, 0, 0, 0.5);
+  border-bottom: 1px solid crimson;
 }
 a {
   color: crimson;
@@ -33,7 +39,7 @@ a:hover {
 }
 .nav-black-bg {
   background-color: #111;
-  border-bottom: solid 1.3px crimson;
+  border-bottom: solid 1.2px crimson;
 }
 .row-home {
   margin-bottom: 3rem;
@@ -90,6 +96,7 @@ a:hover {
 .banner-button {
   width: 5rem;
   height: 2rem;
+  padding-top: 3px;
   margin: 0.8rem 0.5rem 0 0;
   outline: none;
   border: 1px solid white;
@@ -206,8 +213,9 @@ textarea {
   padding-top: 5rem;
 }
 .search-bar {
+  width: 19rem;
   padding: 0.2rem 1rem;
-  border: 1px solid white;
+  border: 1.5px solid white;
   background-color: #111;
   border-radius: 1.5rem;
   color: white;
@@ -220,7 +228,7 @@ textarea {
   background-color: #111;
   padding: 0.2rem 0.8rem;
   border-radius: 1.5rem;
-  border: 1px solid white;
+  border: 1.5px solid white;
   color: white;
   cursor: pointer;
 }
@@ -242,7 +250,11 @@ textarea {
 textarea::placeholder {
   color: gray;
 }
-
+.banner-button > img {
+  width: 1rem;
+  margin-right: 5px;
+  padding-bottom: 4px;
+}
 @media screen and (max-width: 650px) {
   .banner-container {
     width: 100%;

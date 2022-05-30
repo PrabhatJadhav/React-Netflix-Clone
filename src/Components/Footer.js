@@ -14,13 +14,17 @@ function Footer() {
               {" "}
               Privacy{" "}
             </a>
-            <a className="mt-4 color-white" href="#">
-              {" "}
-              Investor{" "}
+            <a
+              href="https://www.flaticon.com/free-icons/right"
+              title="right icons"
+            >
+              Right icons created by Pixel perfect - Flaticon
             </a>
-            <a className="mt-4 color-white" href="#">
-              {" "}
-              Speed Test{" "}
+            <a
+              href="https://www.flaticon.com/free-icons/plus"
+              title="plus icons"
+            >
+              Plus icons created by Freepik - Flaticon
             </a>
           </div>
         </div>

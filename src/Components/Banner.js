@@ -2,13 +2,18 @@ import React, { useEffect, useState } from "react";
 import Navbar from "./Navbar";
 import axios from "../axios";
 import requests from "../requests";
+import youtubeUrl from "../youtubeUrl";
 import "../main.css";
+import plus from "../Media/add.png";
+import check from "../Media/check.png";
 
 function Banner() {
   const [movies, setMovies] = useState([]);
   const [show, handleShow] = useState(false);
-  const [list, setList] = useState("Add");
   const [play, setPlay] = useState({});
+  const [list, setList] = useState("Add");
+  const [addToList, setAddToList] = useState(plus);
+
   const imgBaseUrl = "https://image.tmdb.org/t/p/original";
 
   useEffect(() => {
@@ -38,28 +43,39 @@ function Banner() {
     getData();
   }, []);
 
-  const handleClick = (data) => {
-    if (data === undefined) {
-      alert("Link not ready yet, Try again!");
-    } else {
-      console.log("Movie Id-", data.id);
-      const moviePageBaseUrl = "https://www.themoviedb.org/movie/";
-      const id = data.id;
-      const title = data?.title || data?.name || data?.original_name;
-      const movieBase = moviePageBaseUrl + id + "-";
-      const movieUrl = title.toLowerCase().replace(" ", "-");
-      const finalUrl = movieBase + movieUrl;
-      // setPagerUrl({ finalUrl, title });
-      console.log("Title:-", title, "url- ", finalUrl);
-      window.open(finalUrl, "_blank").focus();
+  const handleClick = async (data) => {
+    const baseVideoUrl = "http://www.youtube.com/watch?v=";
+    const searchInput = data?.title || data?.name || data?.original_name;
+    const response = await youtubeUrl.get("/search", {
+      params: {
+        q: searchInput + " official trailer",
+      },
+    });
+    let videoData = response.data.items;
+    let videoIdArray = [];
+    for (let i = 0; i < 5; i++) {
+      let videoId = videoData[i].id.videoId;
+      if (videoId !== null || videoId !== undefined) {
+        videoIdArray.push(videoId);
+      }
+    }
+    for (let i = 0; i < 5; i++) {
+      if (videoIdArray[i] !== null || videoIdArray[i] !== undefined) {
+        const trailerLink = baseVideoUrl + videoIdArray[i];
+        window.open(trailerLink, "_blank").focus();
+        console.log(trailerLink);
+        return 0;
+      }
     }
   };
 
   function handleList() {
     if (list === "Add") {
-      setList("Added");
-    } else if (list === "Added") {
+      setList("Done");
+      setAddToList(check);
+    } else if (list === "Done") {
       setList("Add");
+      setAddToList(plus);
     }
   }
 
@@ -89,6 +105,7 @@ function Banner() {
               Play
             </button>
             <button className="banner-button" onClick={handleList}>
+              <img src={addToList} />
               {list}
             </button>
           </div>
@@ -103,3 +120,18 @@ function Banner() {
 export default Banner;
 
 // ? --> Optional chaining
+
+//  if (data === undefined) {
+//    alert("Link not ready yet, Try again!");
+//  } else {
+//    console.log("Movie Id-", data.id);
+//    const moviePageBaseUrl = "https://www.themoviedb.org/movie/";
+//    const id = data.id;
+//    const title = data?.title || data?.name || data?.original_name;
+//    const movieBase = moviePageBaseUrl + id + "-";
+//    const movieUrl = title.toLowerCase().replace(" ", "-");
+//    const finalUrl = movieBase + movieUrl;
+//    // setPagerUrl({ finalUrl, title });
+//    console.log("Title:-", title, "url- ", finalUrl);
+//    window.open(finalUrl, "_blank").focus();
+//  }

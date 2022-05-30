@@ -50,6 +50,7 @@ function Trailers() {
           return 0;
         }
       }
+      document.querySelector(".search-bar").value = "";
     }
   }
 
