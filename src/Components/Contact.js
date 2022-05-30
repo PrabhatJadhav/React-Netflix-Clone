@@ -84,7 +84,7 @@ function Contact() {
             <div className="col-md-4 d-flex justify-content-center ms-3">
               <textarea
                 className="p-1"
-                placeholder="Message for Us"
+                placeholder="Message For Us"
                 cols="38"
                 rows="6"
               />
