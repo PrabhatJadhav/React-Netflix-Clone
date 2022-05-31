@@ -6,6 +6,7 @@ import youtubeUrl from "../youtubeUrl";
 import "../main.css";
 import plus from "../Media/add.png";
 import check from "../Media/check.png";
+import ReactPlayer from "react-player";
 
 function Banner() {
   const [movies, setMovies] = useState([]);
@@ -13,6 +14,8 @@ function Banner() {
   const [play, setPlay] = useState({});
   const [list, setList] = useState("Add");
   const [addToList, setAddToList] = useState(plus);
+  const [showTrailer, setTrailer] = useState(true);
+  const [trailerUrl, setTrailerUrl] = "";
 
   const imgBaseUrl = "https://image.tmdb.org/t/p/original";
 
@@ -81,7 +84,7 @@ function Banner() {
 
   return (
     <header
-      className="banner"
+      className={`"banner" ${show ? "" : "bg-blur"}`}
       style={{
         backgroundSize: "cover",
         backgroundImage: `url(${imgBaseUrl}${movies.backdrop_path})`,
@@ -89,8 +92,17 @@ function Banner() {
         backgroundPosition: "top center",
       }}
     >
-      <div className={`navbar-pos ${show && "nav-black-bg"}`}>
+      <div className={`navbar-pos ${showTrailer && "nav-black-bg"}`}>
         <Navbar />
+      </div>
+      <div className="home-wrapper">
+        <ReactPlayer
+          className={`${showTrailer ? "" : "home-player"}`}
+          url={trailerUrl}
+          width="100%"
+          height="100%"
+          controls={true}
+        />
       </div>
       <div className="banner-bg">
         <div className="banner-container">
@@ -105,7 +117,7 @@ function Banner() {
               Play
             </button>
             <button className="banner-button" onClick={handleList}>
-              <img src={addToList} />
+              <img src={addToList} alt="watchlist" />
               {list}
             </button>
           </div>

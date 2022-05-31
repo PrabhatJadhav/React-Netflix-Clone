@@ -6,43 +6,45 @@ function Footer() {
       <div className="row justify-content-between">
         <div className="col">
           <div className="row">
-            <a className="mt-4 color-white" href="#">
+            <a className="mt-4 " href="#">
               {" "}
               FAQ{" "}
             </a>
-            <a className="mt-4 color-white" href="#">
+            <a className="mt-4 " href="#">
               {" "}
               Privacy{" "}
             </a>
             <a
-              href="https://www.flaticon.com/free-icons/right"
-              title="right icons"
+              className="mt-4"
+              href="https://www.flaticon.com/free-icons/check"
+              title="check icons"
             >
-              Right icons created by Pixel perfect - Flaticon
+              Check icons created by Ilham Fitrotul Hayat - Flaticon
             </a>
             <a
-              href="https://www.flaticon.com/free-icons/plus"
-              title="plus icons"
+              className="mt-4"
+              href="https://www.flaticon.com/free-icons/add"
+              title="add icons"
             >
-              Plus icons created by Freepik - Flaticon
+              Add icons created by Ilham Fitrotul Hayat - Flaticon
             </a>
           </div>
         </div>
         <div className="col">
           <div className="row">
-            <a className="mt-4 color-white" href="#">
+            <a className="mt-4 " href="#">
               {" "}
               Help Center{" "}
             </a>
-            <a className="mt-4 color-white" href="#">
+            <a className="mt-4 " href="#">
               {" "}
               Jobs{" "}
             </a>
-            <a className="mt-4 color-white" href="#">
+            <a className="mt-4 " href="#">
               {" "}
               Cookie{" "}
             </a>
-            <a className="mt-4 color-white" href="#">
+            <a className="mt-4 " href="#">
               {" "}
               Legal{" "}
             </a>
@@ -50,19 +52,19 @@ function Footer() {
         </div>
         <div className="col">
           <div className="row">
-            <a className="mt-4 color-white" href="#">
+            <a className="mt-4 " href="#">
               {" "}
               Terms of Use{" "}
             </a>
-            <a className="mt-4 color-white" href="#">
+            <a className="mt-4 " href="#">
               {" "}
               Media Center{" "}
             </a>
-            <a className="mt-4 color-white" href="#">
+            <a className="mt-4 " href="#">
               {" "}
               Only On MediaFlix{" "}
             </a>
-            <a className="mt-4 color-white" href="#">
+            <a className="mt-4 " href="#">
               {" "}
               Corporate Information{" "}
             </a>

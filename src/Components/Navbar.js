@@ -1,4 +1,5 @@
 import React from "react";
+import netflix from "../Media/netflix.png";
 import { Link } from "react-router-dom";
 
 function Navbar() {
@@ -10,7 +11,9 @@ function Navbar() {
             <nav className="navbar navbar-expand-lg">
               <div className="container-fluid">
                 <Link className="navbar-brand fs-2" to="/home">
-                  MediaFlix
+                  <div className="netflix-icon">
+                    <img src={netflix} alt="Netflix" />
+                  </div>
                 </Link>
                 <button
                   className="navbar-toggler btn-dark"

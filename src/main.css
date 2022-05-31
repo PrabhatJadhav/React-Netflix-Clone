@@ -8,10 +8,23 @@ body {
 }
 /* .main-container {
 } */
+.home-container {
+  box-sizing: border-box;
+}
 .navbar-main {
   background: transparent;
   background-color: rgba(0, 0, 0, 0.5);
   border-bottom: 1px solid crimson;
+}
+.netflix-icon img {
+  width: 5.5rem;
+  height: 4.5rem;
+}
+.navbar-brand {
+  padding: 0;
+}
+.navbar {
+  padding: 0;
 }
 a {
   color: crimson;
@@ -79,12 +92,12 @@ a:hover {
   border-radius: 100vw;
 }
 .banner {
-  height: 28rem;
+  min-height: 28rem;
   max-height: auto;
   color: white;
 }
 .banner-bg {
-  height: 100%;
+  height: 27.7rem;
   background-color: rgba(0, 0, 0, 0.6);
 }
 .banner-container {
@@ -255,7 +268,43 @@ textarea::placeholder {
   margin-right: 5px;
   padding-bottom: 4px;
 }
-@media screen and (max-width: 650px) {
+.banner-trailer-video {
+  height: 100vh;
+}
+.home-wrapper {
+  display: flex;
+  padding: 2rem;
+  width: 95%;
+  height: 90%;
+  position: fixed;
+  top: 5%;
+  left: 2.5%;
+}
+.home-player {
+  padding: 1rem;
+  border-radius: 3rem;
+  background-color: black;
+  border: 1px solid black;
+  box-shadow: 0 0 2rem crimson;
+}
+.bg-blur {
+  filter: blur(5px);
+}
+.display-b {
+  display: block;
+  z-index: 1;
+}
+.display-none {
+  display: none;
+}
+.close-icon {
+  width: 2rem;
+  position: absolute;
+  left: 99%;
+  top: -4%;
+}
+
+@media screen and (max-width: 725px) {
   .banner-container {
     width: 100%;
   }
