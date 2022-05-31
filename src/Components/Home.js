@@ -101,6 +101,7 @@ function Home() {
         <img
           onClick={() => {
             setTrailer(false);
+            setTrailerUrl("");
           }}
           className="close-icon"
           src={closeIcon}
@@ -115,6 +116,7 @@ function Home() {
       <div
         onClick={() => {
           setTrailer(false);
+          setTrailerUrl("");
         }}
         className={` home-container ${showTrailer ? "bg-blur" : ""}`}
       >
