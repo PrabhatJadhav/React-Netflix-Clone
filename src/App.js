@@ -20,7 +20,4 @@ export default App;
 
 // https://netflix-clone-d129a.web.app/
 
-// url = "https://api.themoviedb.org/3/movie/550?api_key=d19484decef0947a0dea8b9acf1cdb6a"
-// key = "d19484decef0947a0dea8b9acf1cdb6a"
-
 // Object-Fit contain
