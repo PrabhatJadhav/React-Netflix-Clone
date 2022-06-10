@@ -12,7 +12,6 @@ body {
   box-sizing: border-box;
 }
 .navbar-main {
-  background: transparent;
   background-color: rgba(0, 0, 0, 0.5);
   border-bottom: 1px solid crimson;
 }
@@ -47,7 +46,7 @@ a:hover {
   position: fixed;
   top: 0;
   z-index: 1;
-  transition-timing-function: ease-in-out;
+  transition-timing-function: ease-in;
   transition: all 500ms;
 }
 .nav-black-bg {
@@ -65,21 +64,6 @@ a:hover {
   overflow-x: scroll;
   padding: 1.5rem;
 }
-.row-poster img {
-  object-fit: cover;
-  width: 200px;
-  height: 250px;
-  max-height: auto;
-  margin-right: 1rem;
-  margin-bottom: 1rem;
-  transition: transform 400ms;
-  border: 1.5px solid white;
-}
-.row-poster img:hover {
-  transform: scale(1.08);
-  cursor: pointer;
-  border-color: crimson;
-}
 .row-poster::-webkit-scrollbar {
   height: 0.35rem;
 }
@@ -90,6 +74,20 @@ a:hover {
 .row-poster::-webkit-scrollbar-thumb {
   background-color: crimson;
   border-radius: 100vw;
+}
+.row-poster img {
+  object-fit: cover;
+  width: 200px;
+  height: 250px;
+  margin-right: 1rem;
+  margin-bottom: 1rem;
+  transition: transform 400ms;
+  border: 1.5px solid white;
+}
+.row-poster img:hover {
+  transform: scale(1.08);
+  cursor: pointer;
+  border-color: crimson;
 }
 .banner {
   min-height: 28rem;
@@ -148,6 +146,10 @@ textarea {
   border: 1px solid gray;
   margin: 0.5rem;
   border-radius: 1rem;
+}
+.banner-bg-contact {
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
 }
 .form-control {
   width: 20rem;
@@ -239,7 +241,7 @@ textarea {
 }
 .search-container > form > button {
   background-color: #111;
-  padding: 0.3rem 0.9rem 0 0.8rem;
+  padding: 0.3rem 0.9rem 0 0.9rem;
   border-radius: 1.5rem;
   border: 1.5px solid white;
   color: white;
@@ -302,6 +304,21 @@ textarea::placeholder {
   position: absolute;
   left: 99%;
   top: -4%;
+}
+.close-icon:hover {
+  cursor: pointer;
+}
+.animate {
+  animation: up-down 2s ease-in-out infinite alternate-reverse both;
+}
+
+@keyframes up-down {
+  0% {
+    transform: translateY(8px);
+  }
+  100% {
+    transform: translateY(-8px);
+  }
 }
 
 @media screen and (max-width: 725px) {
