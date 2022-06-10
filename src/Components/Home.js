@@ -10,6 +10,7 @@ import plus from "../Media/add.png";
 import check from "../Media/check.png";
 import ReactPlayer from "react-player";
 import closeIcon from "../Media/cancel.png";
+import { SpinnerDotted } from "spinners-react";
 
 function Home() {
   const [movies, setMovies] = useState([]);
@@ -20,6 +21,7 @@ function Home() {
   const [displayList, setdisplayList] = useState(false);
   const [showTrailer, setTrailer] = useState(false);
   const [trailerUrl, setTrailerUrl] = useState("");
+  const [loading, setLoading] = useState(false);
 
   const imgBaseUrl = "https://image.tmdb.org/t/p/original";
 
@@ -52,6 +54,10 @@ function Home() {
   }, []);
 
   const handleClick = async (data) => {
+    setLoading(true);
+    setTimeout(() => {
+      setLoading(false);
+    }, 3000);
     const baseVideoUrl = "http://www.youtube.com/watch?v=";
     const searchInput = data?.title || data?.name || data?.original_name;
     if (searchInput === undefined) {
@@ -106,6 +112,12 @@ function Home() {
       exit={{ opacity: 0 }}
       transition={{ delay: 0.2, duration: 1 }}
     >
+      <SpinnerDotted
+        className="loader"
+        size="5rem"
+        color="rgb(220,20,60)"
+        enabled={loading}
+      />
       <div
         className={` home-wrapper ${
           showTrailer ? "home-player display-b" : "display-none"
