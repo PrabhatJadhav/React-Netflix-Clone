@@ -54,6 +54,7 @@ a:hover {
   border-bottom: solid 1.2px crimson;
 }
 .row-home {
+  position: relative;
   margin-bottom: 3rem;
   color: white;
   padding: 1.2rem;
@@ -122,6 +123,22 @@ a:hover {
 p {
   font-size: 0.9rem;
   margin-top: 0.8rem;
+}
+.added-movie {
+  display: none;
+  height: 2rem;
+  width: 10rem;
+  position: fixed;
+  top: 18px;
+  right: 10px;
+  background-color: rgb(15, 15, 15);
+}
+.added-movie p {
+  margin: 0;
+  padding: 0.3rem 0;
+  text-align: center;
+  font-size: medium;
+  color: crimson;
 }
 .fadeBottom {
   height: 5rem;
@@ -295,6 +312,7 @@ textarea::placeholder {
 .display-b {
   display: block;
   z-index: 1;
+  animation: fadeInOut 4s ease-in-out;
 }
 .display-none {
   display: none;
@@ -311,6 +329,12 @@ textarea::placeholder {
 .animate {
   animation: up-down 2s ease-in-out infinite alternate-reverse both;
 }
+.loader {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
 
 @keyframes up-down {
   0% {
@@ -318,6 +342,20 @@ textarea::placeholder {
   }
   100% {
     transform: translateY(-8px);
+  }
+}
+@keyframes fadeInOut {
+  0% {
+    opacity: 0;
+  }
+  20% {
+    opacity: 1;
+  }
+  80% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
   }
 }
 

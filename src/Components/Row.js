@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import ReactPlayer from "react-player";
+import { SpinnerDotted } from "spinners-react";
 import axios from "../axios";
 import youtubeUrl from "../youtubeUrl";
 import "../main.css";
@@ -7,16 +8,16 @@ import "../main.css";
 function Row({ title, fetchUrl }) {
   const [movies, setMovies] = useState([]);
   const [trailer, setTrailer] = useState("");
+  const [loading, setLoading] = useState(false);
+
   const imgBaseUrl = "https://image.tmdb.org/t/p/original";
 
   useEffect(() => {
     const getData = async () => {
       const req = await axios.get(fetchUrl);
-      // "https://api.themoviedb.org/3/trending/all/week?api_key=${API_KEY}&language=en-US"
-      // For trending data.
       const response = req.data.results;
       setMovies(response);
-      // console.log("Response", response);
+      // console.log(`${title} Response`, response);
       return 0;
     };
     getData();
@@ -26,6 +27,10 @@ function Row({ title, fetchUrl }) {
 
   const handleClick = async (data) => {
     if (trailer === "") {
+      setLoading(true);
+      setTimeout(() => {
+        setLoading(false);
+      }, 2000);
       const baseVideoUrl = "http://www.youtube.com/watch?v=";
       const searchInput = data?.title || data?.name || data?.original_name;
       const response = await youtubeUrl.get("/search", {
@@ -56,6 +61,12 @@ function Row({ title, fetchUrl }) {
 
   return (
     <div className="row-home">
+      <SpinnerDotted
+        className="loader"
+        size="5rem"
+        color="rgb(220,20,60)"
+        enabled={loading}
+      />
       <h2>{title}</h2>
       <div className="row-poster">
         {movies.map((data) => (
