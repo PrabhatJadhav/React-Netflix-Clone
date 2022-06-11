@@ -12,3 +12,5 @@ const requests = {
 };
 
 export default requests;
+
+// const API_KEY = process.env.REACT_APP_DATA_API;

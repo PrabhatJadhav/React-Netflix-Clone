@@ -16,7 +16,10 @@ function Home() {
   const [movies, setMovies] = useState([]);
   const [show, handleShow] = useState(false);
   const [play, setPlay] = useState({});
-  const [list, setList] = useState("Add");
+  const [list, setList] = useState({
+    status: "Add",
+    listStatus: "",
+  });
   const [addToList, setAddToList] = useState(plus);
   const [displayList, setdisplayList] = useState(false);
   const [showTrailer, setTrailer] = useState(false);
@@ -92,16 +95,20 @@ function Home() {
   };
 
   function handleList() {
-    if (list === "Add") {
-      setList("Done");
+    if (list.status === "Add") {
+      setList({ status: "Done", listStatus: "Added to your List" });
       setAddToList(check);
       setdisplayList(true);
       setTimeout(() => {
         setdisplayList(false);
       }, 4000);
-    } else if (list === "Done") {
-      setList("Add");
+    } else if (list.status === "Done") {
+      setList({ status: "Add", listStatus: "Removed from List" });
       setAddToList(plus);
+      setdisplayList(true);
+      setTimeout(() => {
+        setdisplayList(false);
+      }, 4000);
     }
   }
 
@@ -160,7 +167,7 @@ function Home() {
           </div>
           <div className="banner-bg">
             <div className={`added-movie ${displayList ? "display-b" : ""} `}>
-              <p> Added to your List </p>
+              <p> {list.listStatus} </p>
             </div>
             <div className="banner-container">
               <h1 className="color-white">
@@ -177,7 +184,7 @@ function Home() {
                 </button>
                 <button className="banner-button" onClick={handleList}>
                   <img src={addToList} alt="watchlist" />
-                  {list}
+                  {list.status}
                 </button>
               </div>
               <p className="color-white">{movies.overview}</p>

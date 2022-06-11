@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import ReactPlayer from "react-player";
 import { SpinnerDotted } from "spinners-react";
-import axios from "../axios";
+import instance from "../axios";
 import youtubeUrl from "../youtubeUrl";
 import "../main.css";
 
@@ -14,7 +14,7 @@ function Row({ title, fetchUrl }) {
 
   useEffect(() => {
     const getData = async () => {
-      const req = await axios.get(fetchUrl);
+      const req = await instance.get(fetchUrl);
       const response = req.data.results;
       setMovies(response);
       // console.log(`${title} Response`, response);
