@@ -3,10 +3,12 @@ import Navbar from "./Navbar";
 import ReactPlayer from "react-player";
 import youtubeUrl from "../youtubeUrl";
 import { motion } from "framer-motion";
+import { SpinnerDotted } from "spinners-react";
 
 function Trailers() {
   const [trailer, setTrailer] = useState("");
   const [show, handleShow] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     window.addEventListener("scroll", () => {
@@ -27,6 +29,11 @@ function Trailers() {
     if (e === null) {
       alert("Search bar is empty.");
     } else {
+      // console.log(process.env.REACT_APP_YT_KEY);
+      setLoading(true);
+      setTimeout(() => {
+        setLoading(false);
+      }, 3000);
       const searchInput = document.querySelector(".search-bar").value;
       const baseVideoUrl = "http://www.youtube.com/watch?v=";
       const response = await youtubeUrl.get("/search", {
@@ -50,7 +57,7 @@ function Trailers() {
           return 0;
         }
       }
-      document.querySelector(".search-bar").value = "";
+      // document.querySelector(".search-bar").value = " ";
     }
   }
 
@@ -66,6 +73,12 @@ function Trailers() {
         <Navbar />
       </div>
       <div className="trailer-container">
+        <SpinnerDotted
+          className="loader"
+          size="5rem"
+          color="rgb(220,20,60)"
+          enabled={loading}
+        />
         <div className="trailer-bg">
           <div className="search-container">
             <form onSubmit={handleSubmit}>
