@@ -29,7 +29,7 @@ function Contact() {
         <Navbar />
       </div>
       <div className="contact-banner">
-        <div className="banner-bg">
+        <div className="banner-bg-contact">
           <div className="d-flex justify-content-center align-items-center h-100">
             <h1 className="color-white">Contact Us</h1>
           </div>

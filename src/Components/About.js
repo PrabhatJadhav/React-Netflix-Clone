@@ -57,7 +57,7 @@ function About() {
           aria-expanded="false"
           aria-controls="collapseExample2"
         >
-          What is the cost for MediaFlix ?
+          What is the cost for MediaFlix
         </button>
         <div className="collapse" id="collapseExample2">
           <div className="card card-body color-white">
