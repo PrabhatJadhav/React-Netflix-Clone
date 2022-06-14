@@ -29,14 +29,14 @@ function Kids() {
         <Navbar />
       </div>
       <div className="container-fluid height d-flex align-items-center border-btm">
-        <div className="row ">
+        <div className="row">
           <div className="col-10 mx-auto justify-content-center">
             <div className="row d-flex justify-content-center">
               <div
                 className="col-md-6 pb-5 pt-lg-0 d-flex flex-column order-2 order-lg-1 mt-5 flex-column
               "
               >
-                <h1 className="color-white fw-bold mb-4">
+                <h1 className="color-white fw-bold mt-5 mb-4">
                   Create profiles for children.
                 </h1>
                 <h4 className="color-white fw-bold mb-4">

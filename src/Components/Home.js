@@ -102,7 +102,7 @@ function Home() {
       setTimeout(() => {
         setdisplayList(false);
       }, 4000);
-    } else if (list.status === "Done") {
+    } else {
       setList({ status: "Add", listStatus: "Removed from List" });
       setAddToList(plus);
       setdisplayList(true);
