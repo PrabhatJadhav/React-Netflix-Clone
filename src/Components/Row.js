@@ -1,27 +1,28 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import ReactPlayer from "react-player";
 import { SpinnerDotted } from "spinners-react";
-import instance from "../axios";
 import youtubeUrl from "../youtubeUrl";
 import "../main.css";
 
-function Row({ title, fetchUrl }) {
-  const [movies, setMovies] = useState([]);
+function Row({ title, data }) {
+  const movies = useRef();
+  const [movieData, setMovieData] = useState(false);
   const [trailer, setTrailer] = useState("");
   const [loading, setLoading] = useState(false);
 
   const imgBaseUrl = "https://image.tmdb.org/t/p/original";
 
   useEffect(() => {
-    const getData = async () => {
-      const req = await instance.get(fetchUrl);
-      const response = req.data.results;
-      setMovies(response);
-      // console.log(`${title} Response`, response);
+    const getData = () => {
+      let response = data;
+      // console.log(response);
+      movies.current = response;
+      // console.log(movies);
+      setMovieData(true);
       return 0;
     };
     getData();
-  }, [fetchUrl]); // Always use the prop as dependency
+  }, [data]); // Always use the prop as dependency
 
   // console.log(movies);
 
@@ -69,14 +70,20 @@ function Row({ title, fetchUrl }) {
       />
       <h2>{title}</h2>
       <div className="row-poster">
-        {movies.map((data) => (
-          <img
-            key={data.id}
-            src={imgBaseUrl + data.poster_path}
-            alt={movies?.title || movies?.name || movies?.original_name}
-            onClick={() => handleClick(data)}
-          />
-        ))}
+        {movieData ? (
+          movies.current.map((data) => (
+            <img
+              key={data.id}
+              src={imgBaseUrl + data.poster_path}
+              alt={movies?.title || movies?.name || movies?.original_name}
+              onClick={() => handleClick(data)}
+            />
+          ))
+        ) : (
+          <div>
+            <h1>Loading</h1>
+          </div>
+        )}
       </div>
       {trailer && (
         <div className="player-wrapper">

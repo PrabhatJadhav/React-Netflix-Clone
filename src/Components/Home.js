@@ -1,9 +1,15 @@
 import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import Navbar from "./Navbar";
-import instance from "../axios";
+// import instance from "../axios";
+import {
+  trending,
+  originals,
+  topRated,
+  actionMovies,
+  romanceMovies,
+} from "../API";
 import Row from "./Row";
-import requests from "../requests";
 import youtubeUrl from "../youtubeUrl";
 import "../main.css";
 import plus from "../Media/add.png";
@@ -26,8 +32,6 @@ function Home() {
   const [trailerUrl, setTrailerUrl] = useState("");
   const [loading, setLoading] = useState(false);
 
-  const imgBaseUrl = "https://image.tmdb.org/t/p/original";
-
   useEffect(() => {
     window.addEventListener("scroll", () => {
       if (window.scrollY > 275) {
@@ -42,18 +46,13 @@ function Home() {
   }, []);
 
   useEffect(() => {
-    const getData = async () => {
-      // console.log("API Key-", process.env.REACT_APP_DATA_API);
-      const data = await instance.get(requests.fetchTrending);
-      // console.log(data.data.results);
-      const random = Math.floor(Math.random() * 19) + 0;
-      const banner = data.data.results[random];
-      setMovies(banner);
-      setTimeout(setPlay(banner), 3000);
-
-      return banner;
-    };
-    getData();
+    const data = trending;
+    const random = Math.floor(Math.random() * 8) + 0;
+    const banner = data[random];
+    setMovies(banner);
+    setTimeout(() => {
+      setPlay(banner);
+    }, 3000);
   }, []);
 
   const handleClick = async (data) => {
@@ -157,7 +156,7 @@ function Home() {
           className="banner"
           style={{
             backgroundSize: "cover",
-            backgroundImage: `url(${imgBaseUrl}${movies.backdrop_path})`,
+            backgroundImage: `url(${movies?.backdrop_path})`,
             backgroundRepeat: "no-repeat",
             backgroundPosition: "top center",
           }}
@@ -187,23 +186,17 @@ function Home() {
                   {list.status}
                 </button>
               </div>
-              <p className="color-white">{movies.overview}</p>
+              <p className="color-white">{movies?.overview}</p>
             </div>
             <div className="fadeBottom"></div>
           </div>
         </header>
 
-        <Row
-          title={"NETFLIX ORIGINAL"}
-          fetchUrl={requests.fetchNetflixOriginals}
-        />
-        <Row title={"Trending Now"} fetchUrl={requests.fetchTrending} />
-        <Row title={"Top Rated"} fetchUrl={requests.fetchTopRated} />
-        <Row title={"Action Movies"} fetchUrl={requests.fetchActionMovies} />
-        <Row title={"Comedy Movies"} fetchUrl={requests.fetchComedyMovies} />
-        <Row title={"Horror Movies"} fetchUrl={requests.fetchHorrorMovies} />
-        <Row title={"Romance Movies"} fetchUrl={requests.fetchRomanceMovies} />
-        <Row title={"Documantaries"} fetchUrl={requests.fetchDocumantaries} />
+        <Row title={"NETFLIX ORIGINAL"} data={originals} />
+        <Row title={"Trending Now"} data={trending} />
+        <Row title={"Top Rated"} data={topRated} />
+        <Row title={"Action Movies"} data={actionMovies} />
+        <Row title={"Romance Movies"} data={romanceMovies} />
       </div>
     </motion.div>
   );
