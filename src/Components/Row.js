@@ -74,7 +74,7 @@ function Row({ title, data }) {
           movies.current.map((data) => (
             <img
               key={data.id}
-              src={imgBaseUrl + data.poster_path}
+              src={data.poster_path}
               alt={movies?.title || movies?.name || movies?.original_name}
               onClick={() => handleClick(data)}
             />
